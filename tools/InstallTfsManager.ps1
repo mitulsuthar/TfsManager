@@ -9,9 +9,9 @@ function Install-TfsManager {
         $Destination = $ModulePaths | Select-Object -Index 0
     }
 
-    $downloadUrl = 'https://raw.github.com/mitulsuthar/TfsManager/master/lib/TfsManager.Cmdlets.dll'
+    $downloadUrl = 'https://github.com/mitulsuthar/TfsManager/raw/master/lib/TFSManager.Cmdlets.dll'
     New-Item ($Destination + "\TfsManager.Cmdlets\") -ItemType Directory -Force | out-null
-    'Downloading PsGet from {0}' -f $downloadUrl | Write-Host
+    'Downloading TfsManager from {0}' -f $downloadUrl | Write-Host
     $client = (New-Object Net.WebClient)
     $client.Proxy.Credentials = [System.Net.CredentialCache]::DefaultNetworkCredentials
     $client.DownloadFile($downloadUrl, $Destination + "\TfsManager.Cmdlets\TfsManager.Cmdlets.dll")
